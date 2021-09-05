@@ -1,0 +1,23 @@
+<div *ngIf="this.currentPage!=null && this.videoPages && this.videoPages[currentPage]">
+
+    <h1 *ngIf="mainTitle">{{mainTitle}}</h1>
+
+    <div class="body">
+        <section>
+            <h2>{{videoPages[currentPage].title}}</h2>
+            <p>{{videoPages[currentPage].description}}</p>
+            <iframe width="560" height="315" [src]="sanitizeUrl(videoPages[currentPage].videoUrl)"
+                title="YouTube video player" frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen></iframe>
+        </section>
+        <div class="buttons">
+            <button class="previous" mat-raised-button [disabled]="currentPage==0"
+                (click)="previousPage()">Back</button>
+            <button class="next" mat-raised-button [disabled]="currentPage==videoPages.length-1" (click)="nextPage()"
+                color="primary">Next</button>
+        </div>
+
+    </div>
+
+</div>
