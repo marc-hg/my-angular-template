@@ -16,21 +16,7 @@
         <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
       </button>
       <span>
-        <!-- <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
-          <mat-icon>more_vert</mat-icon>
-        </button> -->
-        <!-- <mat-menu #menu="matMenu">
-          <button mat-menu-item>
-            <mat-icon><span class="material-icons">
-                dark_mode
-              </span></mat-icon>
-            <span>Dark <mat-slide-toggle [checked]="isThemeDark" (click)="$event.stopPropagation()"
-                (change)="onThemeSwitched($event)">
-              </mat-slide-toggle></span>
-          </button>
 
-
-        </mat-menu> -->
         <mat-icon><span class="material-icons">
             dark_mode
           </span></mat-icon>
@@ -38,7 +24,6 @@
         <mat-slide-toggle [checked]="isThemeDark" (click)="$event.stopPropagation()" (change)="onThemeSwitched($event)">
         </mat-slide-toggle>
 
-        <!-- <mat-slide-toggle [checked]="isThemeDark" (change)="onThemeSwitched($event)">Dark theme</mat-slide-toggle> -->
       </span>
     </mat-toolbar>
     <ng-content></ng-content>

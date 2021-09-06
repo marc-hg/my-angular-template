@@ -13,13 +13,13 @@ export class VideoPageService {
       description: `In these series I'll try my best to explain what OOP is and its four fundamental principles. This is the first video.
 
             OOP is one of the most popular programming paradigms nowadays specially in the business world due to its facility to model real life objects in code(so it's easier to solve real life problems), reusability, modularity, security amongst other benefits`,
-      videoUrl: `https://www.youtube.com/embed/UmDFPi3nEUI`,
+      videoUrl: `https://www.youtube.com/embed/1Tb6VxSU9d8`,
       family: 'OOP',
     },
     {
       title: 'What is a program? States and Behaviour',
       description: `In this part we're gonna explain the concepts of States and Behaviour in a program. In summary the states in a program are the set of possible data combinations it can hold and the behaviour is the logic part of the program responsible for altering the current state(through modifying or creating new data)`,
-      videoUrl: `https://www.youtube.com/embed/V_6VhWHrbLo`,
+      videoUrl: `https://www.youtube.com/embed/kDKZi23fqsQ`,
       family: 'OOP',
     },
     {
@@ -33,7 +33,7 @@ Functional: Behaviour gets separated from the State of the program. It's statele
 
 OOP: Behaviour and state that's related gets encapsulated into objects. Everything is an object.
 `,
-      videoUrl: `https://www.youtube.com/embed/F0Lmo-sISpY?list=PL4teROlF5K0KApW0k2ELk3hEYUWc_0X0R`,
+      videoUrl: `https://www.youtube.com/embed/z7g9Niu3h9Q`,
       family: 'OOP',
     },
     {
@@ -42,7 +42,7 @@ OOP: Behaviour and state that's related gets encapsulated into objects. Everythi
 
 Summary:
 Encapsulation is bundling together(encapsulating) data and behaviour that is somehow related(in this case, related to dog). Also when you encapsulate data and behaviour you should only expose what you need to expose`,
-      videoUrl: `https://www.youtube.com/embed/DyEZEBNgHwc?list=PL4teROlF5K0KApW0k2ELk3hEYUWc_0X0R`,
+      videoUrl: `https://www.youtube.com/embed/u19vaw8mFqM`,
       family: 'OOP',
     },
     {
@@ -51,7 +51,7 @@ Encapsulation is bundling together(encapsulating) data and behaviour that is som
 
 Summary:
 As we saw on the last video, when encapsulating Data and Behaviour in an object we should also just expose only what's necessary, and that's the main idea of abstraction. In this video we'll also look at different ways of restricting what we expose to different scopes by using the different access modifiers: private, no modifier, protected and public`,
-      videoUrl: `https://www.youtube.com/embed/KXRa18PZJdg?list=PL4teROlF5K0KApW0k2ELk3hEYUWc_0X0R`,
+      videoUrl: `https://www.youtube.com/embed/RyWAS3YX8Iw`,
       family: 'OOP',
     },
     {
@@ -60,7 +60,7 @@ As we saw on the last video, when encapsulating Data and Behaviour in an object 
 
 Summary:
 Inheritance is the way OOP brings us to reutilize code through passing down data and behaviour from one main common class to subclasses while also giving us the flexibility to not only have new different data/behaviour on these subclasses than the parent but also overwrite behaviour if we wanted to`,
-      videoUrl: `https://www.youtube.com/embed/MRk64exJ4DI?list=PL4teROlF5K0KApW0k2ELk3hEYUWc_0X0R`,
+      videoUrl: `https://www.youtube.com/embed/LukOo5NpbkU`,
       family: 'OOP',
     },
     {
@@ -71,7 +71,7 @@ Summary:
 Polymorphism is the way in which one thing can be many others. In the context of OOP this means that one particular behaviour with one particular name can actually be different things depending on the context.
 
 We have two types of polymorphism: The one that occurs at compilation time through method overloading and the one that occurs at runtime when using inheritance(or interfaces)`,
-      videoUrl: `https://www.youtube.com/embed/DFky5CRnVVc?list=PL4teROlF5K0KApW0k2ELk3hEYUWc_0X0R`,
+      videoUrl: `https://www.youtube.com/embed/C7FLK2vGEmE`,
       family: 'OOP',
     },
     {
