@@ -18,6 +18,12 @@ import { MatMenuModule } from '@angular/material/menu';
 import { HomeComponent } from './home/home.component';
 import { VideoPageComponent } from './courses/video-page/video-page.component';
 import { CourseComponent } from './courses/course/course.component';
+import { MarkdownModule } from 'ngx-markdown';
+import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
+import { MyMarkdownEditorComponent } from './my-markdown-editor/my-markdown-editor.component';
+import { MatGridListModule } from '@angular/material/grid-list';
+import { MatInputModule } from '@angular/material/input';
 
 @NgModule({
   declarations: [
@@ -26,6 +32,7 @@ import { CourseComponent } from './courses/course/course.component';
     HomeComponent,
     VideoPageComponent,
     CourseComponent,
+    MyMarkdownEditorComponent,
   ],
   imports: [
     BrowserModule,
@@ -41,6 +48,11 @@ import { CourseComponent } from './courses/course/course.component';
     MatFormFieldModule,
     MatSelectModule,
     MatMenuModule,
+    HttpClientModule,
+    MarkdownModule.forRoot(),
+    FormsModule,
+    MatGridListModule,
+    MatInputModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

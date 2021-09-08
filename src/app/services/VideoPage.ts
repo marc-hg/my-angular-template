@@ -1,6 +1,6 @@
 export interface VideoPage {
   title: string;
-  innerHTML: string;
+  markdownText: string;
   videoUrl: string;
   family: string;
 }

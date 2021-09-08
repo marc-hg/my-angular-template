@@ -1,0 +1,13 @@
+<h1>Markdown Editor</h1>
+
+<mat-grid-list cols=2 rows=1>
+    <mat-grid-tile>
+        <mat-form-field class="markdown-input" appearance="fill">
+            <mat-label>Write your markdown here..</mat-label>
+            <textarea class="min-height" matInput placeholder="# Title" [(ngModel)]="myMarkdown"></textarea>
+        </mat-form-field>
+    </mat-grid-tile>
+    <mat-grid-tile>
+        <markdown class="markdown-output" [data]="myMarkdown"></markdown>
+    </mat-grid-tile>
+</mat-grid-list>

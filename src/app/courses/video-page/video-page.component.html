@@ -11,7 +11,7 @@
         </section>
 
         <section>
-            <div [innerHTML]="byPassHTML(videoPages[currentPage].innerHTML)"></div>
+            <markdown [data]="videoPages[currentPage].markdownText"></markdown>
             <ng-content></ng-content>
         </section>
 

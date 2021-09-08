@@ -8,6 +8,7 @@
       <a mat-list-item routerLink="/courses/electronics/information-representation/0">Information Representation</a>
       <a mat-list-item routerLink="/courses/electronics/circuits-comb/0">Combinatoric Circuits</a>
       <a mat-list-item routerLink="/courses/electronics/circuits-seq/0">Sequential Circuits</a>
+      <a mat-list-item routerLink="/mymarkdowneditor">Markdown Editor</a>
     </mat-nav-list>
   </mat-sidenav>
   <mat-sidenav-content>
@@ -27,6 +28,9 @@
 
       </span>
     </mat-toolbar>
-    <ng-content></ng-content>
+    <div class="wrapper">
+      <ng-content></ng-content>
+    </div>
+
   </mat-sidenav-content>
 </mat-sidenav-container>
