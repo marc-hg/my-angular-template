@@ -5,10 +5,16 @@
     <div class="body">
         <section>
             <h2>{{videoPages[currentPage].title}}</h2>
-            <p>{{videoPages[currentPage].description}}</p>
-            <iframe width="560" height="315" [src]="sanitizeUrl(videoPages[currentPage].videoUrl)"
-                title="YouTube video player" frameborder="0" allowfullscreen></iframe>
+            <iframe *ngIf="videoPages[currentPage].videoUrl" width="560" height="315"
+                [src]="sanitizeUrl(videoPages[currentPage].videoUrl)" title="YouTube video player" frameborder="0"
+                allowfullscreen></iframe>
         </section>
+
+        <section>
+            <div [innerHTML]="byPassHTML(videoPages[currentPage].innerHTML)"></div>
+            <ng-content></ng-content>
+        </section>
+
         <div class="buttons">
             <button class="previous" mat-raised-button [disabled]="currentPage==0"
                 (click)="previousPage()">Back</button>

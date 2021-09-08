@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { CircuitsSequentialComponent } from './circuits-sequential.component';
+import { CourseComponent } from './course.component';
 
-describe('CircuitsSequentialComponent', () => {
-  let component: CircuitsSequentialComponent;
-  let fixture: ComponentFixture<CircuitsSequentialComponent>;
+describe('CourseComponent', () => {
+  let component: CourseComponent;
+  let fixture: ComponentFixture<CourseComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ CircuitsSequentialComponent ]
+      declarations: [ CourseComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(CircuitsSequentialComponent);
+    fixture = TestBed.createComponent(CourseComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

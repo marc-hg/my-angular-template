@@ -15,21 +15,17 @@ import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatSelectModule } from '@angular/material/select';
 import { MatMenuModule } from '@angular/material/menu';
-import { IntroductionToOopComponent } from './courses/introduction-to-oop/introduction-to-oop.component';
 import { HomeComponent } from './home/home.component';
-import { CircuitsCombinationalComponent } from './courses/circuits-combinational/circuits-combinational.component';
-import { CircuitsSequentialComponent } from './courses/circuits-sequential/circuits-sequential.component';
-import { VideoPageComponent } from './shared/video-page/video-page.component';
+import { VideoPageComponent } from './courses/video-page/video-page.component';
+import { CourseComponent } from './courses/course/course.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavigationComponent,
-    IntroductionToOopComponent,
     HomeComponent,
-    CircuitsCombinationalComponent,
-    CircuitsSequentialComponent,
     VideoPageComponent,
+    CourseComponent,
   ],
   imports: [
     BrowserModule,

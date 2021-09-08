@@ -1,18 +1,15 @@
 import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
-import { CircuitsCombinationalComponent } from './courses/circuits-combinational/circuits-combinational.component';
-import { CircuitsSequentialComponent } from './courses/circuits-sequential/circuits-sequential.component';
-import { IntroductionToOopComponent } from './courses/introduction-to-oop/introduction-to-oop.component';
+import { RouterModule, Routes, UrlSegment } from '@angular/router';
+import { CourseComponent } from './courses/course/course.component';
 import { HomeComponent } from './home/home.component';
 
+export function coursesPathMatcher(url: UrlSegment[]) {
+  return url[0].path === 'courses' ? { consumed: url } : null;
+}
+
 const routes: Routes = [
-  { path: '', component: HomeComponent },
-  { path: 'courses/oop/:id', component: IntroductionToOopComponent },
-  {
-    path: 'courses/circuits-comb/:id',
-    component: CircuitsCombinationalComponent,
-  },
-  { path: 'courses/circuits-seq/:id', component: CircuitsSequentialComponent },
+  { path: '', pathMatch: 'full', component: HomeComponent },
+  { matcher: coursesPathMatcher, component: CourseComponent },
 ];
 
 @NgModule({

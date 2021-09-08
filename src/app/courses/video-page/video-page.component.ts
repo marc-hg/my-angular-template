@@ -1,7 +1,7 @@
 import { Route } from '@angular/compiler/src/core';
 import { AfterViewInit, Component, Input, OnInit } from '@angular/core';
 import { DomSanitizer } from '@angular/platform-browser';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
 import { VideoPageService } from 'src/app/services/video-page.service';
 import { VideoPage } from '../../services/VideoPage';
 
@@ -10,9 +10,9 @@ import { VideoPage } from '../../services/VideoPage';
   templateUrl: './video-page.component.html',
   styleUrls: ['./video-page.component.scss'],
 })
-export class VideoPageComponent implements OnInit {
-  @Input() videosFamily?: string;
-  @Input() mainTitle?: string;
+export class VideoPageComponent {
+  videosFamily?: string;
+  mainTitle?: string;
   videoPages?: VideoPage[];
   currentPage?: number;
 
@@ -22,17 +22,20 @@ export class VideoPageComponent implements OnInit {
     private activatedRoute: ActivatedRoute,
     private router: Router
   ) {
-    this.activatedRoute.params.subscribe((params) => {
-      this.currentPage = params.id;
+    router.events.subscribe((val) => {
+      if (val instanceof NavigationEnd) {
+        console.log('asdf');
+        let url = (val as NavigationEnd).url.split('/');
+        this.videosFamily = url[2];
+        this.currentPage = Number(url.pop());
+        if (this.videosFamily)
+          this.videoPageService
+            .getVideosByFamily(this.videosFamily)
+            .subscribe((response) => {
+              this.videoPages = response;
+            });
+      }
     });
-  }
-  ngOnInit(): void {
-    if (this.videosFamily)
-      this.videoPageService
-        .getVideosByFamily(this.videosFamily)
-        .subscribe((response) => {
-          this.videoPages = response;
-        });
   }
 
   sanitizeUrl(url: string) {
@@ -45,6 +48,10 @@ export class VideoPageComponent implements OnInit {
 
   nextPage(): void {
     this._changePage(1);
+  }
+
+  byPassHTML(myHtml: string) {
+    return this.dom.bypassSecurityTrustHtml(myHtml);
   }
 
   private _changePage(pageShift: number): void {
