@@ -1,4 +1,4 @@
-WIP project
+# WIP project
 
 # MyAngularTemplate
 
