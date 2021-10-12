@@ -20,10 +20,11 @@ import { VideoPageComponent } from './courses/video-page/video-page.component';
 import { CourseComponent } from './courses/course/course.component';
 import { MarkdownModule } from 'ngx-markdown';
 import { HttpClientModule } from '@angular/common/http';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MyMarkdownEditorComponent } from './my-markdown-editor/my-markdown-editor.component';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatInputModule } from '@angular/material/input';
+import { CapitalPipe } from './pipes/capital.pipe';
 
 @NgModule({
   declarations: [
@@ -33,6 +34,7 @@ import { MatInputModule } from '@angular/material/input';
     VideoPageComponent,
     CourseComponent,
     MyMarkdownEditorComponent,
+    CapitalPipe,
   ],
   imports: [
     BrowserModule,
@@ -48,6 +50,7 @@ import { MatInputModule } from '@angular/material/input';
     MatFormFieldModule,
     MatSelectModule,
     MatMenuModule,
+    ReactiveFormsModule,
     HttpClientModule,
     MarkdownModule.forRoot(),
     FormsModule,

@@ -1,5 +1,8 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
+import { map } from 'rxjs/operators';
+import { environment } from 'src/environments/environment';
 import { VideoPage } from './VideoPage';
 
 @Injectable({
@@ -139,9 +142,25 @@ The example is a bit silly since it's just one XOR gate but all that you'll see 
     },
   ];
 
-  constructor() {}
+  url = environment.backendUrl + 'videoPages';
+
+  constructor(private http: HttpClient) {}
 
   getVideosByFamily(family: string): Observable<VideoPage[]> {
     return of(this.videoPages.filter((video) => video.family === family));
+  }
+
+  getVideoPage(id: string): Observable<VideoPage> {
+    if (!id)
+      throw new Error('No id was given to VideoPageService.getVideoPage()');
+    return this.http
+      .get(`${this.url}/${id}`)
+      .pipe(map((response) => response as VideoPage));
+  }
+
+  createVideoPage(videoPage: VideoPage): Observable<VideoPage> {
+    return this.http
+      .post(this.url, videoPage)
+      .pipe(map((response) => response as VideoPage));
   }
 }

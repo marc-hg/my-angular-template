@@ -11,3 +11,21 @@
         <markdown class="markdown-output" [data]="myMarkdown"></markdown>
     </mat-grid-tile>
 </mat-grid-list>
+
+<div *ngIf="formGroup">
+
+
+    <form [formGroup]="formGroup" (ngSubmit)="submitForm()">
+        <div>
+            <label>Description</label>
+            <input formControlName="description">
+        </div>
+
+        <div>
+            <label>Video Url</label>
+            <input formControlName="videoUrl">
+        </div>
+
+        <button type="submit">submit</button>
+    </form>
+</div>

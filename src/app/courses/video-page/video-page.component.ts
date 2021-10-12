@@ -2,6 +2,7 @@ import { Route } from '@angular/compiler/src/core';
 import { AfterViewInit, Component, Input, OnInit } from '@angular/core';
 import { DomSanitizer } from '@angular/platform-browser';
 import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
+import { Observable } from 'rxjs/internal/Observable';
 import { VideoPageService } from 'src/app/services/video-page.service';
 import { VideoPage } from '../../services/VideoPage';
 
@@ -11,10 +12,7 @@ import { VideoPage } from '../../services/VideoPage';
   styleUrls: ['./video-page.component.scss'],
 })
 export class VideoPageComponent {
-  videosFamily?: string;
-  mainTitle?: string;
-  videoPages?: VideoPage[];
-  currentPage?: number;
+  $videoPage?: Observable<VideoPage>;
 
   constructor(
     private dom: DomSanitizer,
@@ -24,16 +22,8 @@ export class VideoPageComponent {
   ) {
     router.events.subscribe((val) => {
       if (val instanceof NavigationEnd) {
-        console.log('asdf');
-        let url = (val as NavigationEnd).url.split('/');
-        this.videosFamily = url[2];
-        this.currentPage = Number(url.pop());
-        if (this.videosFamily)
-          this.videoPageService
-            .getVideosByFamily(this.videosFamily)
-            .subscribe((response) => {
-              this.videoPages = response;
-            });
+        const videoPageId = val.url.split('/')[2];
+        this.$videoPage = this.videoPageService.getVideoPage(videoPageId);
       }
     });
   }

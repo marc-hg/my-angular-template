@@ -1,4 +1,4 @@
-<div *ngIf="this.currentPage!=null && this.videoPages && this.videoPages[currentPage]">
+<!-- <div *ngIf="this.currentPage!=null && this.videoPages && this.videoPages[currentPage]">
 
     <h1 *ngIf="mainTitle">{{mainTitle}}</h1>
 
@@ -24,4 +24,20 @@
 
     </div>
 
+</div> -->
+
+
+<div *ngIf="$videoPage | async as videoPage">
+    <div class="body">
+        <section>
+            <!-- <h2>Placeholder title</h2> -->
+            <iframe *ngIf="videoPage.videoUrl" width="560" height="315" [src]="sanitizeUrl(videoPage.videoUrl)"
+                title="YouTube video player" frameborder="0" allowfullscreen></iframe>
+        </section>
+
+        <section>
+            <markdown [data]="videoPage.markdownText"></markdown>
+            <ng-content></ng-content>
+        </section>
+    </div>
 </div>

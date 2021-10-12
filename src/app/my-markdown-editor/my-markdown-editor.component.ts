@@ -1,4 +1,8 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup } from '@angular/forms';
+import { VideoPageService } from '../services/video-page.service';
+import { VideoPage } from '../services/VideoPage';
 
 @Component({
   selector: 'app-my-markdown-editor',
@@ -24,7 +28,36 @@ print("%s", text);
 
 `;
 
-  constructor() {}
+  formGroup: FormGroup;
+
+  constructor(
+    private fb: FormBuilder,
+    private videoPageService: VideoPageService
+  ) {
+    this.formGroup = this.fb.group({
+      description: [''],
+      markdownText: [''],
+      videoUrl: [''],
+    });
+  }
 
   ngOnInit(): void {}
+
+  createVideoPage() {
+    this.videoPageService
+      .createVideoPage(this.formGroup.value)
+      .subscribe((response: any) => console.table(response));
+  }
+
+  submitForm() {
+    const videoPage = this._processFormValues(this.formGroup.value);
+    this.videoPageService
+      .createVideoPage(videoPage)
+      .subscribe((response: VideoPage) => console.table(response));
+  }
+
+  private _processFormValues(value: VideoPage): VideoPage {
+    value.markdownText = this.myMarkdown;
+    return value;
+  }
 }

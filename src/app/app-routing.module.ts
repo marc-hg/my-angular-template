@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes, UrlSegment } from '@angular/router';
 import { CourseComponent } from './courses/course/course.component';
+import { VideoPageComponent } from './courses/video-page/video-page.component';
 import { HomeComponent } from './home/home.component';
 import { MyMarkdownEditorComponent } from './my-markdown-editor/my-markdown-editor.component';
 
@@ -15,7 +16,7 @@ const routes: Routes = [
     pathMatch: 'full',
     component: MyMarkdownEditorComponent,
   },
-  { matcher: coursesPathMatcher, component: CourseComponent },
+  { matcher: coursesPathMatcher, component: VideoPageComponent },
 ];
 
 @NgModule({
